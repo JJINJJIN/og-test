@@ -1,0 +1,95 @@
+// _common.scss
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Cafe24 Ssurround air';
+    src: url('../font/Cafe24Ssurroundair.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Cafe24 Ssurround air';
+}
+body{margin:0;}
+h1,h2,h3,h4,h5,h6,figure,p{margin:0;}
+a{text-decoration: none;}
+ul,li{list-style-type: none; padding:0; margin:0;}
+img{vertical-align: middle;}
+table{border-collapse: collapse;}
+
+$content-width:70%;
+$p-tb100 : 100px 0;
+@mixin h2 {
+    h2{font-size:54px;}
+    p{color:#555;}
+}
+
+@mixin flex($jc,$ai,$fd,$fw){
+    display:flex; 
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+    flex-wrap: $fw;
+}
+
+header{
+    position:fixed;
+    left:0; top:0;
+    width:100%;
+    padding:30px 0;
+    z-index:9;
+
+    >div{
+        width:70%; margin:0 auto;
+        // display:flex;
+        // justify-content: space-between;
+        // align-items: center;
+        @include flex(space-between,center,row,nowrap);
+        position:relative;
+
+        a{color:#fff;}
+        h1{
+            a{
+                background: url('../img/logo.png') no-repeat;
+                font-size:0;
+                width:96px; height:36px;
+                display:inline-block;
+            }
+        }
+        nav{
+            flex-grow: 1; text-align: right;            
+            a{
+                display:inline-block;
+                padding:0 2%;
+            }
+        }
+        
+        .trigger-menu{
+            width:26px; height:16px;
+            position:absolute;
+            right:0; top:30%;
+            cursor:pointer;
+
+            display:none;
+            span{
+                width:100%;
+                border-bottom:2px solid #fff;
+                position:absolute;
+                left:0; top:50%;
+
+                &:nth-child(1){
+                    transform: translateY(-6px);
+                }
+                &:nth-child(3){
+                    transform: translateY(6px);
+                }
+            }
+            
+        }
+    }
+}
+
+footer{ padding:$p-tb100;    text-align: center;}
